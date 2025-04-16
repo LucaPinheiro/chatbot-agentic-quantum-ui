@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900 min-h-screen;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1 {
+    @apply text-3xl font-bold mb-4;
+  }
+  
+  h2 {
+    @apply text-2xl font-bold mb-3;
+  }
+  
+  h3 {
+    @apply text-xl font-bold mb-2;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply bg-quantum-DEFAULT text-white hover:bg-quantum-dark focus:ring-quantum-light;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary-DEFAULT text-white hover:bg-secondary-dark focus:ring-secondary-light;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6;
+  }
+  
+  .input {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-quantum-light focus:border-transparent;
+  }
+  
+  .chat-bubble {
+    @apply rounded-lg px-4 py-2 max-w-[80%] mb-2;
+  }
+  
+  .chat-bubble-user {
+    @apply chat-bubble bg-quantum-light text-white self-end;
+  }
+  
+  .chat-bubble-bot {
+    @apply chat-bubble bg-gray-100 text-gray-800 self-start;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}
+
+/* Quantum animations */
+.quantum-particle {
+  @apply absolute w-2 h-2 rounded-full bg-quantum-light opacity-70;
+  animation: quantum-float 3s ease-in-out infinite;
+}
+
+@keyframes quantum-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.2);
+  }
+}
+
+/* Loading indicator */
+.quantum-loading {
+  @apply flex space-x-2 justify-center items-center;
+}
+
+.quantum-loading div {
+  @apply w-2 h-2 bg-quantum-DEFAULT rounded-full;
+  animation: quantum-bounce 1.4s infinite ease-in-out both;
+}
+
+.quantum-loading div:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.quantum-loading div:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes quantum-bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
